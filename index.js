@@ -5,7 +5,7 @@
 // );
 
 fetch(
-  `http://api.musixmatch.com/ws/1.1/track.search?apikey=${API_KEY}q_artist=drake`
+  `https://cors-anywhere.herokuapp.com/http://api.musixmatch.com/ws/1.1/track.search?q_track=hype&apikey=${API_KEY}`
 )
   .then((res) => res.json())
   .then((data) => {
