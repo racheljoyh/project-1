@@ -104,10 +104,15 @@ body {
   width: 50%;
   margin-bottom: 2.4rem;
   border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.img:hover {
   filter: drop-shadow(0 0 1em rgba(103, 167, 202, 0.469));
 }
 
 .description {
+  display: block;
   font-size: 1.2rem;
   color: #f1f3f5;
   line-height: 1.6;
@@ -133,6 +138,7 @@ body {
 
 .watched-btn {
   display: block;
+  cursor: pointer;
   border: 0;
   width: 150px;
   color: black;
@@ -142,6 +148,12 @@ body {
   font-size: 20px;
   text-align: center;
   margin-top: 2.4rem;
+  transition: all 0.3s;
+}
+
+.watched-btn:hover {
+  background-color: #3bc9db;
+  color: #fff;
 }
 
 form {
@@ -151,12 +163,13 @@ form {
 
 #comment {
   /* width: 50%; */
-  font-size: 2rem;
+  font-size: 1.8rem;
   width: 90%;
   height: 40px;
   background-color: #f1f3f5;
   border: 1px solid grey;
   padding: 0 1.6rem;
+  border-radius: 5px;
 }
 
 .comment-text {
@@ -165,6 +178,9 @@ form {
 }
 
 .comment-btn {
+  cursor: pointer;
+  font-family: "Noto Sans";
+  font-weight: 500;
   border: 0;
   width: 150px;
   color: black;
@@ -172,4 +188,10 @@ form {
   border-radius: 5px;
   font-size: 20px;
   text-align: center;
+  transition: all 0.3s;
+}
+
+.comment-btn:hover {
+  background-color: #3bc9db;
+  color: #fff;
 }

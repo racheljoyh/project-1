@@ -1,11 +1,9 @@
 // Global variables
 
 const filmBox = document.querySelector("#film-box");
-const likes = document.querySelector("#like-count");
-const EMPTY_HEART = "♡";
-const FULL_HEART = "♥";
-
 let currentFilm;
+
+// Fetching Studio Ghibli API
 
 fetch(`https://ghibliapi.herokuapp.com/films?limit=5`)
   .then((res) => res.json())
@@ -30,6 +28,7 @@ function renderFilms(film) {
   rating.className = "rating-text";
   watchedBtn.textContent = "Unwatched";
   watchedBtn.className = "watched-btn";
+  form.className = "comment-form";
 
   commentSection.className = "comment-text";
   commentSection.innerHTML = `<h2 class="heading-tertiary">How did you like the movie?</h2>`;
@@ -45,8 +44,6 @@ function renderFilms(film) {
     commentSection,
     form
   );
-
-  // Adds likes when button is clicked
 
   // Renders comment form
   form.innerHTML = `<form><input type="text" id ="comment" name="comment" placeholder="Discuss the movie.." />
@@ -75,7 +72,6 @@ function renderFilms(film) {
 
   // Renders details when image is clicked
   let clicked = false;
-  let watched = false;
 
   filmImage.addEventListener("click", () => {
     if (clicked === false) {
@@ -94,6 +90,8 @@ function renderFilms(film) {
       console.log(releaseDate);
     }
   });
+
+  // Toggles watched and unwatched button
 
   watchedBtn.addEventListener("click", () => {
     currentFilm.watched = !currentFilm.watched;
