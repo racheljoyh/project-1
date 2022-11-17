@@ -5,7 +5,7 @@ let currentFilm;
 
 // Fetching Studio Ghibli API
 
-fetch(`https://ghibliapi.herokuapp.com/films?limit=5`)
+fetch(`https://ghibliapi.herokuapp.com/films?limit=9`)
   .then((res) => res.json())
   .then((allFilms) => {
     allFilms.forEach((oneFilm) => {
@@ -24,6 +24,8 @@ function renderFilms(film) {
   const rating = document.createElement("span");
   const form = document.createElement("form");
   const descriptionBox = document.createElement("div");
+  const cardContainer = document.createElement("div");
+  cardContainer.className = "card-container";
 
   rating.className = "rating-text";
   watchedBtn.textContent = "Unwatched";
@@ -35,7 +37,9 @@ function renderFilms(film) {
 
   // Appends all the created elements to the overall container
 
-  filmBox.append(
+  filmBox.appendChild(cardContainer);
+
+  cardContainer.append(
     filmTitle,
     filmImage,
     descriptionBox,
@@ -64,6 +68,7 @@ function renderFilms(film) {
   });
 
   // Renders film title and image
+
   filmImage.className = "img";
   filmImage.src = film.image;
   filmTitle.textContent = film.title;
@@ -89,6 +94,18 @@ function renderFilms(film) {
       releaseDate.textContent = `Release Date: ${currentFilm.release_date}`;
       console.log(releaseDate);
     }
+  });
+
+  // Toggles glow when you hover an image
+
+  filmImage.addEventListener("mouseenter", () => {
+    filmImage.style.filter = `drop-shadow(0 0 1em rgba(103, 167, 202, 0.469))`;
+    filmImage.style.transition = `all 0.3s`;
+  });
+
+  filmImage.addEventListener("mouseleave", () => {
+    filmImage.style.filter = `none`;
+    filmImage.style.tranistion = `0.3s`;
   });
 
   // Toggles watched and unwatched button
