@@ -153,16 +153,19 @@ nav {
   margin: 0 auto;
   margin-top: 4.8rem;
   display: flex;
-  /* flex-direction: column;
-  align-items: center; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 100px;
   row-gap: 100px;
   justify-content: center;
   align-items: center;
+}
 
-  /* background-color: red; */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading-secondary:first-child {
@@ -177,9 +180,9 @@ nav {
   /* transition: all 0.3s; */
 }
 
-/* .img:hover {
-  filter: drop-shadow(0 0 1em rgba(103, 167, 202, 0.469));
-} */
+.img:hover {
+  transform: translateY(-1.2rem);
+}
 
 .description {
   display: block;
@@ -202,7 +205,7 @@ nav {
 }
 
 .rating-text {
-  font-size: 2.6rem;
+  font-size: 2rem;
   margin-top: 1.6rem;
 }
 
@@ -268,11 +271,4 @@ form {
 
 .hidden {
   display: none;
-}
-
-.card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
